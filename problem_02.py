@@ -16,7 +16,7 @@ Topics = [
 
 db_for_search = "?db=pubmed"
 retmode = "&retmode=json"
-rettype = "&rettype=count" # 안씀
+rettype = "&rettype=count" # 갯수만 가져오도록 설정
 
 
 # 저장할 빈 리스트 및 변수 작성
@@ -30,7 +30,7 @@ count_least = 99999999999999
 for topic in Topics:
     # url 조합
     term_for_search = "&term=" + topic
-    url_for_search = BASE_URL + db_for_search + term_for_search + retmode
+    url_for_search = BASE_URL + db_for_search + term_for_search + retmode + rettype
 
     # 응답받기
     response = requests.get(url_for_search)

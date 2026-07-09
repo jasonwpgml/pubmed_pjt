@@ -9,7 +9,7 @@ BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 db_for_search = "?db=pubmed"
 term_for_search = "&term=artificial+intelligence+cancer"
 retmode = "&retmode=json"
-rettype = "&rettype=count" # 안씀
+rettype = "&rettype=count" # 여기선 안씀
 
 # url 조합
 url_for_search = BASE_URL + db_for_search + term_for_search + retmode
