@@ -19,8 +19,11 @@ count_has_mostkeyword = 0
 with open(path_csv, "r", encoding="utf-8") as file :
     reader = csv.DictReader(file)
 
+    # reader를 리스트로 저장해두기
+    rows = list(reader)
+
     # 딕셔너리 추출
-    for dict in reader:
+    for dict in rows:
         artitle = dict["title"]
         abstext = dict["abstract"]
 
@@ -34,11 +37,11 @@ with open(path_csv, "r", encoding="utf-8") as file :
             keyword_most = k
 
     # 해당 키워드가 포함된 논문의 수를 출력
-    for dict in reader:
-        artitle = dict["title"]
-        abstext = dict["abstract"]
+    for dict in rows:
+        artitle = dict["title"].lower()
+        abstext = dict["abstract"].lower()
 
-        if artitle.find(keyword_most) or abstext.find(keyword_most):
+        if (artitle.find(keyword_most)+1) or (abstext.find(keyword_most)+1):
             count_has_mostkeyword += 1
     
 print(f"가장 많이 등장한 키워드: {keyword_most}")
