@@ -1,6 +1,10 @@
 import requests
 import csv
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # 기본 URL
 BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
@@ -13,7 +17,7 @@ Topics = [
     "COVID-19 vaccine",
     "cancer immunotherapy"
     ]
-
+api_key = "api_key=" + str(os.getenv("PUBMED_API_KEY"))
 db_for_search = "?db=pubmed"
 retmode = "&retmode=json"   # 이거 해야 json 으로 줌
 rettype = "&rettype=count"  # 갯수만 가져오도록 설정
@@ -30,7 +34,7 @@ count_least = 99999999999999
 for topic in Topics:
     # url 조합
     term_for_search = "&term=" + topic
-    url_for_search = BASE_URL + db_for_search + term_for_search + retmode + rettype
+    url_for_search = BASE_URL + db_for_search + api_key + term_for_search + retmode + rettype
 
     # 응답받기
     response = requests.get(url_for_search)
