@@ -8,8 +8,8 @@ BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 # 검색할 DB위치와 검색용어(term)설정
 db_for_search = "?db=pubmed"
 term_for_search = "&term=artificial+intelligence+cancer"
-retmode = "&retmode=json"
-rettype = "&rettype=count" # 여기선 안씀
+retmode = "&retmode=json"   # 이거 해야 json 으로 줌
+rettype = "&rettype=count"  # 여기선 안씀
 
 # url 조합
 url_for_search = BASE_URL + db_for_search + term_for_search + retmode

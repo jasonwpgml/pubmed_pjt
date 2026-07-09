@@ -15,8 +15,8 @@ Topics = [
     ]
 
 db_for_search = "?db=pubmed"
-retmode = "&retmode=json"
-rettype = "&rettype=count" # 갯수만 가져오도록 설정
+retmode = "&retmode=json"   # 이거 해야 json 으로 줌
+rettype = "&rettype=count"  # 갯수만 가져오도록 설정
 
 
 # 저장할 빈 리스트 및 변수 작성
